@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000
 
 // middleware 
 app.use(cors({
-  origin: ['https://espresso-server-rj791a52v-naimoon-jannat-praptis-projects.vercel.app/?fbclid=IwZXh0bgNhZW0CMTAAAR2Urfl0WRPxQQ3VDVRbXTlInv4iusceMRSbTBKXJcU7G7v55qYv_OGs1cU_aem_Ae6v18nbwx6A3rSIdMEiPsqFrHU_G5PKeopRv4fvn3ICTkB8pR7P87e3rSEXqJtEeYZtV8uE3uFAriDcNQYYBoCr','https://coffee-shop-4c45d.web.app'], credentials: true
+  origin: ['http://localhost:5173','https://coffee-shop-4c45d.web.app'], credentials: true
 }));
 app.use(express.json())
 
@@ -26,7 +26,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    // await client.connect();
 
   
         // to send data to database 
@@ -81,8 +81,8 @@ async function run() {
     })
 
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    // await client.db("admin").command({ ping: 1 });
+    // console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
